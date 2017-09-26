@@ -1,4 +1,4 @@
-#include "SoftTimers.h"
+п»ї#include "SoftTimers.h"
 
 //####################### user timers ###############
 	#define MAXuserTIMERS 30
@@ -64,39 +64,39 @@ void SYSTICK()
 //####################### user timers ###############
 
 //
-//	if (t1.ct>t1.time){  t1.out=true;}//таймер включился
+//	if (t1.ct>t1.time){  t1.out=true;}//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 //	else  t1.ct++;//
-//	if (t1.reset) {t1.ct=0; t1.out=false; t1.reset=false; }//сброс таймера
+//	if (t1.reset) {t1.ct=0; t1.out=false; t1.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 //
 //
-//	if (t2.ct>t2.time){  t2.out=true;  }//таймер включился
+//	if (t2.ct>t2.time){  t2.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 //	else  t2.ct++;//
-//	if (t2.reset) {t2.ct=0; t2.out=false; t2.reset=false; }//сброс таймера
+//	if (t2.reset) {t2.ct=0; t2.out=false; t2.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 //
-//	if (t3.ct>t3.time){  t3.out=true;  }//таймер включился
+//	if (t3.ct>t3.time){  t3.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 //	else  t3.ct++;//
-//	if (t3.reset) {t3.ct=0; t3.out=false; t3.reset=false; }//сброс таймера
+//	if (t3.reset) {t3.ct=0; t3.out=false; t3.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 
 	
-	if (MRFtimer.ct>MRFtimer.time){  MRFtimer.out=true;  }//таймер включился
+	if (MRFtimer.ct>MRFtimer.time){  MRFtimer.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 	else  MRFtimer.ct++;//
-	if (MRFtimer.reset) {MRFtimer.ct=0; MRFtimer.out=false; MRFtimer.reset=false; }//сброс таймера
+	if (MRFtimer.reset) {MRFtimer.ct=0; MRFtimer.out=false; MRFtimer.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 	
-	if (OUTPUTtimer.ct>OUTPUTtimer.time){  OUTPUTtimer.out=true;  }//таймер включился
+	if (OUTPUTtimer.ct>OUTPUTtimer.time){  OUTPUTtimer.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 	else  OUTPUTtimer.ct++;//
-	if (OUTPUTtimer.reset) {OUTPUTtimer.ct=0; OUTPUTtimer.out=false; OUTPUTtimer.reset=false; }//сброс таймера
+	if (OUTPUTtimer.reset) {OUTPUTtimer.ct=0; OUTPUTtimer.out=false; OUTPUTtimer.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 
-		if (TASKtimer.ct>TASKtimer.time){  TASKtimer.out=true;  }//таймер включился
+		if (TASKtimer.ct>TASKtimer.time){  TASKtimer.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 	else  TASKtimer.ct++;//
-	if (TASKtimer.reset) {TASKtimer.ct=0; TASKtimer.out=false; TASKtimer.reset=false; }//сброс таймера
+	if (TASKtimer.reset) {TASKtimer.ct=0; TASKtimer.out=false; TASKtimer.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 
-		if (LCDtimerWRITE.ct>LCDtimerWRITE.time){  LCDtimerWRITE.out=true;  }//таймер включился
+		if (LCDtimerWRITE.ct>LCDtimerWRITE.time){  LCDtimerWRITE.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 	else  LCDtimerWRITE.ct++;//
-	if (LCDtimerWRITE.reset) {LCDtimerWRITE.ct=0; LCDtimerWRITE.out=false; LCDtimerWRITE.reset=false; }//сброс таймера
+	if (LCDtimerWRITE.reset) {LCDtimerWRITE.ct=0; LCDtimerWRITE.out=false; LCDtimerWRITE.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 
-		if (LCDtimerPRINT.ct>LCDtimerPRINT.time){  LCDtimerPRINT.out=true;  }//таймер включился
+		if (LCDtimerPRINT.ct>LCDtimerPRINT.time){  LCDtimerPRINT.out=true;  }//С‚Р°Р№РјРµСЂ РІРєР»СЋС‡РёР»СЃСЏ
 	else  LCDtimerPRINT.ct++;//
-	if (LCDtimerPRINT.reset) {LCDtimerPRINT.ct=0; LCDtimerPRINT.out=false; LCDtimerPRINT.reset=false; }//сброс таймера
+	if (LCDtimerPRINT.reset) {LCDtimerPRINT.ct=0; LCDtimerPRINT.out=false; LCDtimerPRINT.reset=false; }//СЃР±СЂРѕСЃ С‚Р°Р№РјРµСЂР°
 
 }
 

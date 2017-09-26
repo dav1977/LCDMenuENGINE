@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 #include "CoreSettings.h"
 #include "Types.h"
@@ -6,11 +6,11 @@
 
 	 typedef struct
     {
-        uint ct;			//Переменная для отсчета таймера
-				uint time;    //время отсчета до включения таймера
+        uint ct;			//РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ РѕС‚СЃС‡РµС‚Р° С‚Р°Р№РјРµСЂР°
+				uint time;    //РІСЂРµРјСЏ РѕС‚СЃС‡РµС‚Р° РґРѕ РІРєР»СЋС‡РµРЅРёСЏ С‚Р°Р№РјРµСЂР°
         bool out;   
-        bool reset;  	//сброс ct			
-		} SOFT_TIMER_TON;//ТАЙМЕР С ЗАДЕРЖКОЙ ВКЛЮЧЕНИЯ
+        bool reset;  	//СЃР±СЂРѕСЃ ct			
+		} SOFT_TIMER_TON;//РўРђР™РњР•Р  РЎ Р—РђР”Р•Р Р–РљРћР™ Р’РљР›Р®Р§Р•РќРРЇ
 
 		
 //--- system timers

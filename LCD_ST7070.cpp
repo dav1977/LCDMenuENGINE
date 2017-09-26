@@ -1,4 +1,4 @@
-#include "LCD_ST7070.h"
+п»ї#include "LCD_ST7070.h"
 #include "SoftTimers.h"
 
 	#define NativePosition(x) (x<21)?x-1:  (x<41)?0x40+x-21:  (x<61)?0x14+x-41:  0x54+x-61
@@ -6,9 +6,9 @@
 	lcd_io LCDWrite={false,false,0,0 ,0,0};
 	
 //===============================================================================
-//								4х строчнй LCD	20символов в строке
+//								4С… СЃС‚СЂРѕС‡РЅР№ LCD	20СЃРёРјРІРѕР»РѕРІ РІ СЃС‚СЂРѕРєРµ
 //===============================================================================
-bool CurrentPAGE=false;//СТРАНИЦА ТЕКУЩАЯ    LATIN- только на 0 странице;  CYRILLIC- на 1 странице
+bool CurrentPAGE=false;//РЎРўР РђРќРР¦Рђ РўР•РљРЈР©РђРЇ    LATIN- С‚РѕР»СЊРєРѕ РЅР° 0 СЃС‚СЂР°РЅРёС†Рµ;  CYRILLIC- РЅР° 1 СЃС‚СЂР°РЅРёС†Рµ
 byte LCDtask=0;
 byte CursorPosition=1;
 bool CursorENABLE=false;
@@ -157,7 +157,7 @@ bool step_analiz_print()
 		if (LCDtimerPRINT.out)  timerBLOCK=false;
 		if (timerBLOCK) return true;
 		
-		if (LCDprint.blockStep) return true;//уже идет выполнение шага	
+		if (LCDprint.blockStep) return true;//СѓР¶Рµ РёРґРµС‚ РІС‹РїРѕР»РЅРµРЅРёРµ С€Р°РіР°	
 		LCDprint.blockStep=true;
 		return false;
 	}
@@ -183,29 +183,29 @@ bool step_analiz_Write()
 		if ( LCDtimerWRITE.out )   timerBLOCK=false;
 		if (timerBLOCK) return true;
 		
-		if (LCDWrite.blockStep) return true;//уже идет выполнение шага	
+		if (LCDWrite.blockStep) return true;//СѓР¶Рµ РёРґРµС‚ РІС‹РїРѕР»РЅРµРЅРёРµ С€Р°РіР°	
 		LCDWrite.blockStep=true;
 		return false;
 	}
 
 //===============================================================================
-//								Функции записи
+//								Р¤СѓРЅРєС†РёРё Р·Р°РїРёСЃРё
 //===============================================================================
 //--------------------------------------------------  TASK WRITE
-void LCD_sendCHAR( byte Data)//инит задачи ВЫВОД СИМВОЛА
+void LCD_sendCHAR( byte Data)//РёРЅРёС‚ Р·Р°РґР°С‡Рё Р’Р«Р’РћР” РЎРРњР’РћР›Рђ
 {
 	LCDWrite.step=0;
 	LCDWrite.wrData=Data;
 	ControlSet(A0);//C10
-	LCDWrite.TASKworkON=true;//СТАРТ ЗАДАЧИ, КОГДА ВЫПОЛНИТСЯ САМА СБРОСИТ ФЛАГ
+	LCDWrite.TASKworkON=true;//РЎРўРђР Рў Р—РђР”РђР§Р, РљРћР“Р”Рђ Р’Р«РџРћР›РќРРўРЎРЇ РЎРђРњРђ РЎР‘Р РћРЎРРў Р¤Р›РђР“
 }
 
-void LCD_setCOMMAND( byte Data)//инит задачи КОММАНДА!!
+void LCD_setCOMMAND( byte Data)//РёРЅРёС‚ Р·Р°РґР°С‡Рё РљРћРњРњРђРќР”Рђ!!
 {
 	LCDWrite.step=0;
 	LCDWrite.wrData=Data;
 	ControlClear(A0);//C10
-	LCDWrite.TASKworkON=true;//СТАРТ ЗАДАЧИ, КОГДА ВЫПОЛНИТСЯ САМА СБРОСИТ ФЛАГ
+	LCDWrite.TASKworkON=true;//РЎРўРђР Рў Р—РђР”РђР§Р, РљРћР“Р”Рђ Р’Р«РџРћР›РќРРўРЎРЇ РЎРђРњРђ РЎР‘Р РћРЎРРў Р¤Р›РђР“
 }
 
 void LCD_TASK_WRITEcycle( byte Data)
@@ -229,7 +229,7 @@ void LCD_TASK_WRITEcycle( byte Data)
 							//LCDWrite.TASKworkON=false;
 						
 			break;
-			case 3: //висим задача выполнена
+			case 3: //РІРёСЃРёРј Р·Р°РґР°С‡Р° РІС‹РїРѕР»РЅРµРЅР°
 			default: 									 
 			break;
 		}
@@ -261,19 +261,19 @@ void LCD_TASK_PRINT()
 							}
 							else { LCD_STEPoffset(5);}
 			break;
-			case 1: if (!LCDWrite.TASKworkON) LCD_Next_Step(); else {}//остаемся в  это м же шаге
+			case 1: if (!LCDWrite.TASKworkON) LCD_Next_Step(); else {}//РѕСЃС‚Р°РµРјСЃСЏ РІ  СЌС‚Рѕ Рј Р¶Рµ С€Р°РіРµ
 				
 			break;
 			case 2:  i=0;  
-							 if(((uint8)globSTR[index] >= 'А'/*0xBF*/ /*&& (uint8)globSTR[index] <= 0xFF*/) ||
-										globSTR[index] == 'Ё' || globSTR[index] == 'ё'){ 	LCD_Next_Step();}
+							 if(((uint8)globSTR[index] >= 'Рђ'/*0xBF*/ /*&& (uint8)globSTR[index] <= 0xFF*/) ||
+										globSTR[index] == 'РЃ' || globSTR[index] == 'С‘'){ 	LCD_Next_Step();}
 							 else { LCD_STEPoffset(5);/*PrintLatin*/ }
 			break;  					 
-			case 3:    //------------- цикл i  поиск символа в массиве  PrintCyrillic (РУССКИЕ) 	
+			case 3:    //------------- С†РёРєР» i  РїРѕРёСЃРє СЃРёРјРІРѕР»Р° РІ РјР°СЃСЃРёРІРµ  PrintCyrillic (Р РЈРЎРЎРљРР•) 	
 									
 									if(CyrillicFont.Alphabet[i].Symbol == globSTR[index])
 									{	
-														//проверка страницы (всего две 0 и 1) КИРИЛЛИЦА НА 1 странице
+														//РїСЂРѕРІРµСЂРєР° СЃС‚СЂР°РЅРёС†С‹ (РІСЃРµРіРѕ РґРІРµ 0 Рё 1) РљРР РР›Р›РР¦Рђ РќРђ 1 СЃС‚СЂР°РЅРёС†Рµ
 														if(CyrillicFont.Alphabet[i].Page != CurrentPAGE)
 														{
 																	CurrentPAGE = CyrillicFont.Alphabet[i].Page;
@@ -289,13 +289,13 @@ void LCD_TASK_PRINT()
 												i++; 
 												if (i<SIZE_CYRILLIC) 
 												{  
-													LCD_STEPoffset(0);//остаемся в шаге продолжаем искать
+													LCD_STEPoffset(0);//РѕСЃС‚Р°РµРјСЃСЏ РІ С€Р°РіРµ РїСЂРѕРґРѕР»Р¶Р°РµРј РёСЃРєР°С‚СЊ
 												} 
 												else 
-												{  /* символ не найден в таблице*/ LCD_STEPoffset(4); } 								
+												{  /* СЃРёРјРІРѕР» РЅРµ РЅР°Р№РґРµРЅ РІ С‚Р°Р±Р»РёС†Рµ*/ LCD_STEPoffset(4); } 								
 									}
 			break;								
-			case 4:   	if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//остаемся в  это м же шаге
+			case 4:   	if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//РѕСЃС‚Р°РµРјСЃСЏ РІ  СЌС‚Рѕ Рј Р¶Рµ С€Р°РіРµ
 			break;
 				      ///---------------------------------------------------------------
 			case 5: 	globSTR[index]=CyrillicFont.Alphabet[i].Code;
@@ -304,19 +304,19 @@ void LCD_TASK_PRINT()
 			case 6:   	LCD_STEPoffset(3);
 			break;
 				
-			case 7:	/* русский символ не найден в таблице*/
+			case 7:	/* СЂСѓСЃСЃРєРёР№ СЃРёРјРІРѕР» РЅРµ РЅР°Р№РґРµРЅ РІ С‚Р°Р±Р»РёС†Рµ*/
 																	CurrentPAGE = 0;
 																	LCD_setCOMMAND(0x0C | (byte)CurrentPAGE );
 																	LCD_NextStep_Delay(10);
 																		
 			break;	
-			case 8: 	 if (!LCDWrite.TASKworkON) LCD_Next_Step();// else {}//остаемся в  это м же шаге
+			case 8: 	 if (!LCDWrite.TASKworkON) LCD_Next_Step();// else {}//РѕСЃС‚Р°РµРјСЃСЏ РІ  СЌС‚Рѕ Рј Р¶Рµ С€Р°РіРµ
 			break;
 				
 			case 9:   	LCD_sendCHAR(globSTR[index]);
 						LCD_NextStep_Delay(5);
 			break;
-			case 10: 	if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//остаемся в  это м же шаге
+			case 10: 	if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//РѕСЃС‚Р°РµРјСЃСЏ РІ  СЌС‚Рѕ Рј Р¶Рµ С€Р°РіРµ
 			break;				
 					
 					
@@ -347,29 +347,29 @@ void LCD_TASK_PRINT()
 													}
 													else {LCD_STEPoffset(2); }
 									break;
-			case 13:   if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//остаемся в  это м же шаге
+			case 13:   if (!LCDWrite.TASKworkON) LCD_Next_Step(); //else {}//РѕСЃС‚Р°РµРјСЃСЏ РІ  СЌС‚Рѕ Рј Р¶Рµ С€Р°РіРµ
 									break;
 									
 
 		//--------------------------------------------		 
 		 case 14: if(globPOS == 0x67) {globPOS = 0;}
 													
-							if (globSTR[index]==0) {LCDprint.TASKworkON=false;LCD_Next_Step();}//задача выполнена
+							if (globSTR[index]==0) {LCDprint.TASKworkON=false;LCD_Next_Step();}//Р·Р°РґР°С‡Р° РІС‹РїРѕР»РЅРµРЅР°
 			        else LCD_STEPoffset(-12);
 		 break;
 									
-		 case 15:  //висим ждем иницилизации менеджера
+		 case 15:  //РІРёСЃРёРј Р¶РґРµРј РёРЅРёС†РёР»РёР·Р°С†РёРё РјРµРЅРµРґР¶РµСЂР°
 		 default: 								 
 		 break;			
 	}	
 }
 //#################################################################################
-// 								Подготовка TASK LCD
+// 								РџРѕРґРіРѕС‚РѕРІРєР° TASK LCD
 //#################################################################################
 void LCD_start_TASK_print()
 {
     LCDprint.step=0;
-    LCDprint.TASKworkON=true;//СТАРТ ЗАДАЧИ, КОГДА ВЫПОЛНИТСЯ САМА СБРОСИТ ФЛАГ
+    LCDprint.TASKworkON=true;//РЎРўРђР Рў Р—РђР”РђР§Р, РљРћР“Р”Рђ Р’Р«РџРћР›РќРРўРЎРЇ РЎРђРњРђ РЎР‘Р РћРЎРРў Р¤Р›РђР“
 }
 
 bool LCD_is_PRINTING()
@@ -418,14 +418,14 @@ void LCD_WORK()
 
 	if (LCDprint.iter!=0){ LCD_PRINT_CURSOR(); return; }
 	 
-	//запуск задачи если надо напечатать строки
+	//Р·Р°РїСѓСЃРє Р·Р°РґР°С‡Рё РµСЃР»Рё РЅР°РґРѕ РЅР°РїРµС‡Р°С‚Р°С‚СЊ СЃС‚СЂРѕРєРё
 	if (LCDtask!=0 && !LCDprint.TASKworkON)  
 	{
 		LCD_start_TASK_print();
 		if (!CursorENABLE && BITGET(LCDtask,7)) BITRES(LCDtask,7); 
 		
-		//обязательно выставлять ПЯТЫЙ бит!!!
-		if (BITGET(LCDtask,1)) { globSTR=globSTRmass[0]; globPOS=globPOSmass[0]; BITRES(LCDtask,1); BITSET(LCDtask,5);return; }//сначала печатаем 1 строку
+		//РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ РІС‹СЃС‚Р°РІР»СЏС‚СЊ РџРЇРўР«Р™ Р±РёС‚!!!
+		if (BITGET(LCDtask,1)) { globSTR=globSTRmass[0]; globPOS=globPOSmass[0]; BITRES(LCDtask,1); BITSET(LCDtask,5);return; }//СЃРЅР°С‡Р°Р»Р° РїРµС‡Р°С‚Р°РµРј 1 СЃС‚СЂРѕРєСѓ
 		else
 		if (BITGET(LCDtask,2)) {globSTR=globSTRmass[1]; globPOS=globPOSmass[1]; BITRES(LCDtask,2);BITSET(LCDtask,5);return; }
 		else
@@ -435,7 +435,7 @@ void LCD_WORK()
 		else
 		if (BITGET(LCDtask,7)) { LCDprint.iter=1; if (CursorPosition==1 ) globSTR=pCURSOR; else  globSTR=pNOTCURSOR;
 													globPOS= NativePosition(1); return; }
-		else //больше нечего печатать
+		else //Р±РѕР»СЊС€Рµ РЅРµС‡РµРіРѕ РїРµС‡Р°С‚Р°С‚СЊ
 		{
 			LCDtask=0;LCDprint.TASKworkON=false;
 		}
@@ -444,11 +444,11 @@ void LCD_WORK()
 }
 
 //#################################################################################
-// 							 внешняя функция Установки задач
+// 							 РІРЅРµС€РЅСЏСЏ С„СѓРЅРєС†РёСЏ РЈСЃС‚Р°РЅРѕРІРєРё Р·Р°РґР°С‡
 //#################################################################################
 void LCD_PRINTstr( byte numstr,  char *str, byte offset, char *maxstr)
 {
-	if (numstr<1 || numstr>4) return;//НОМЕР СТРОКИ
+	if (numstr<1 || numstr>4) return;//РќРћРњР•Р  РЎРўР РћРљР
 	
 	byte len=(byte)(maxstr-str);	
 	byte last_position=offset+len;
@@ -456,7 +456,7 @@ void LCD_PRINTstr( byte numstr,  char *str, byte offset, char *maxstr)
 	if (last_position>19) str[20-offset]=0;
 	else
 	{
-	//заполнение остатка строки пробелами
+	//Р·Р°РїРѕР»РЅРµРЅРёРµ РѕСЃС‚Р°С‚РєР° СЃС‚СЂРѕРєРё РїСЂРѕР±РµР»Р°РјРё
 				byte ostatok= 20-last_position;
 				if (last_position<20)
 				{
@@ -469,12 +469,12 @@ void LCD_PRINTstr( byte numstr,  char *str, byte offset, char *maxstr)
 
 
 	byte Position=(numstr-1)*20 +1;
-	//запоминаем указатели
+	//Р·Р°РїРѕРјРёРЅР°РµРј СѓРєР°Р·Р°С‚РµР»Рё
 	globSTRmass[numstr-1]=str;
 	globPOSmass[numstr-1]= NativePosition(Position+ offset);
 
 							
-	//запуск задачи печати
+	//Р·Р°РїСѓСЃРє Р·Р°РґР°С‡Рё РїРµС‡Р°С‚Рё
 	BITSET(LCDtask, numstr);
 }
 

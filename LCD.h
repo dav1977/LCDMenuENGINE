@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #ifndef LCD_H
 #define LCD_H
 #include "CoreSettings.h"
@@ -37,14 +37,14 @@ char FuncNULL(unsigned char);
 
  struct MenuItem
 {
- int indexBACK; //индекс при нажатии кнопки влево
- int startCurrent; //ТЕКУЩИЙ ИНДЕКС ОКНА
- bool cursorENABLE ; //1-курсор включен 0 - выключен
- char text[21]; // а последний символ по стандарту Си должен быть нулем)
- int maxCURSOR; //макс.строка курсора
- int offsetENTER;//смещение при нажатии ввод
- char (*func)(unsigned char); //указатель на функцию, вызываемую при динамическом UPDATE
- short number_par;//номер параметра
+ int indexBACK; //РёРЅРґРµРєСЃ РїСЂРё РЅР°Р¶Р°С‚РёРё РєРЅРѕРїРєРё РІР»РµРІРѕ
+ int startCurrent; //РўР•РљРЈР©РР™ РРќР”Р•РљРЎ РћРљРќРђ
+ bool cursorENABLE ; //1-РєСѓСЂСЃРѕСЂ РІРєР»СЋС‡РµРЅ 0 - РІС‹РєР»СЋС‡РµРЅ
+ char text[21]; // Р° РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» РїРѕ СЃС‚Р°РЅРґР°СЂС‚Сѓ РЎРё РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РЅСѓР»РµРј)
+ int maxCURSOR; //РјР°РєСЃ.СЃС‚СЂРѕРєР° РєСѓСЂСЃРѕСЂР°
+ int offsetENTER;//СЃРјРµС‰РµРЅРёРµ РїСЂРё РЅР°Р¶Р°С‚РёРё РІРІРѕРґ
+ char (*func)(unsigned char); //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С„СѓРЅРєС†РёСЋ, РІС‹Р·С‹РІР°РµРјСѓСЋ РїСЂРё РґРёРЅР°РјРёС‡РµСЃРєРѕРј UPDATE
+ short number_par;//РЅРѕРјРµСЂ РїР°СЂР°РјРµС‚СЂР°
 };
 
 
